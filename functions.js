@@ -95,11 +95,93 @@ function renderTable(array){
             const cell4 = document.createElement('td'); 
             cell4.innerHTML = array[i].cell4; 
             row2.appendChild(cell4);
-            
+
             const cell5 = document.createElement('td');
             cell5.innerHTML = array[i].cell5;
             row2.appendChild(cell5);
         }
     }
   
+}
+
+
+
+function createLabel(labelText, htmlFor) {
+    const label = document.createElement('label'); 
+    label.textContent = labelText;
+    label.htmlFor = htmlFor;
+    return label;
+}
+function createInput(inputType, inputId, inputName) {
+    const input = document.createElement('input');
+    input.type = inputType;
+    input.id = inputId;
+    input.name = inputName;
+    return input;
+}
+function createErrorDiv() {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error';
+    return errorDiv;
+}
+function generateForm() {
+    const form = document.createElement('form');
+    form.id = 'form';
+    form.action = '#';
+    const fields = [
+        {
+            label: 'Származás:',
+            id: 'szarmazas',
+            name: 'szarmazas',
+            type: 'text'
+        },
+        {
+            label: '1. szerző:',
+            id: 'szerzo1',
+            name: 'szerzo1',
+            type: 'text'
+        },
+        {
+            label: '1. szerző műve:',
+            id: 'szerzo1mu',
+            name: 'szerzo1mu',
+            type: 'text'
+        },
+        {
+            label: '2. szerző:',
+            id: 'szerzo2',
+            name: 'szerzo2',
+            type: 'text'
+        },
+        {
+            label: '2. szerző műve:',
+            id: 'szerzo2mu',
+            name: 'szerzo2mu',
+            type: 'text'
+        }
+    ];
+    for (const i of fields) {
+        //field div
+        const fieldDiv = document.createElement('div');
+        fieldDiv.className = 'field';
+        //lable
+        const label = createLabel(i.label, i.id);
+        fieldDiv.appendChild(label);
+        fieldDiv.appendChild(document.createElement('br'));
+        //input
+        const input = createInput(i.type, i.id, i.name);
+        fieldDiv.appendChild(input); 
+        fieldDiv.appendChild(document.createElement('br'));
+        //error div
+        const errorDiv = createErrorDiv();
+        fieldDiv.appendChild(errorDiv);
+        fieldDiv.appendChild(document.createElement('br'));
+        form.appendChild(fieldDiv);
+    }
+    //button
+    const button = document.createElement('button');
+    button.type = 'submit';
+    button.textContent = 'Hozzáadás'; 
+    form.appendChild(button);
+    document.body.appendChild(form);
 }

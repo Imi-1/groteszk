@@ -38,7 +38,7 @@ table.appendChild(tbody);
 generateColgroup();
 createHeader(); 
 renderTable(array);
-// generateForm();
+generateForm();
 
 
 const form = document.getElementById('form');
