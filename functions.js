@@ -32,6 +32,7 @@ function validateFormInputFieldsExtra(inputElement1, inputElement2){
 
 function generateColgroup(){  
     const tableID=document.getElementById("tableID")
+
     const colgroup = document.createElement('colgroup');
     tableID.appendChild(colgroup);
   
@@ -53,7 +54,7 @@ function createHeader(){
     };
     
     const tableID=document.getElementById("tableID")
-    
+
     const thead = document.createElement('thead');
     tableID.appendChild(thead); 
 
@@ -65,4 +66,40 @@ function createHeader(){
         headerCell.innerHTML = headerObj[i]; 
         headerRow.appendChild(headerCell); 
     }
+}
+
+
+function renderTable(array){
+    for (const i in array) {
+        const row1 = document.createElement('tr');
+        const tbodyID=document.getElementById("tbodyID");
+        tbodyID.appendChild(row1);
+    
+        const cell1 = document.createElement('td');
+        cell1.innerHTML = array[i].cell1;
+        row1.appendChild(cell1);
+
+        const cell2 = document.createElement('td');
+        cell2.innerHTML = array[i].cell2;
+        row1.appendChild(cell2); 
+    
+        const cell3 = document.createElement('td');
+        cell3.innerHTML = array[i].cell3;
+        row1.appendChild(cell3); 
+
+        if (array[i].cell4 !== undefined && array[i].cell5 !== undefined){
+            cell1.rowSpan = "2";
+            const row2 = document.createElement('tr');
+            tbodyID.appendChild(row2);
+
+            const cell4 = document.createElement('td'); 
+            cell4.innerHTML = array[i].cell4; 
+            row2.appendChild(cell4);
+            
+            const cell5 = document.createElement('td');
+            cell5.innerHTML = array[i].cell5;
+            row2.appendChild(cell5);
+        }
+    }
+  
 }

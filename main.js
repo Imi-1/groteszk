@@ -37,7 +37,7 @@ table.appendChild(tbody);
 
 generateColgroup();
 createHeader(); 
-// renderTable(array);
+renderTable(array);
 // generateForm();
 
 
