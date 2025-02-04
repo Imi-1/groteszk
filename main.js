@@ -35,8 +35,8 @@ const tbody = document.createElement('tbody');
 tbody.id="tbodyID";
 table.appendChild(tbody);
 
-// generateColgroup();
-// createHeader(); 
+generateColgroup();
+createHeader(); 
 // renderTable(array);
 // generateForm();
 
@@ -75,7 +75,7 @@ form.addEventListener('submit', function(e) {
         valid = false;
     }
 
-    
+
     if(!validateFormInputFieldsExtra(cell4HtmlElement, cell5HtmlElement)){
         valid=false
     }
